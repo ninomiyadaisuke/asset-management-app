@@ -4,6 +4,7 @@ export type Asset = {
   industry: string;
   pumberOfPossessions: number;
   purchasePrice: number;
+  marketPrice: number;
   dividend: number;
   yield: number;
 };
