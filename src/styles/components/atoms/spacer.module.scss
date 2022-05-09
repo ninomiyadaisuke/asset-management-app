@@ -1,0 +1,52 @@
+@import '../../variables.scss';
+
+.spacer {
+  &-xxs {
+    height: 4px;
+  }
+  &-xs {
+    height: 14px;
+  }
+  &-sm {
+    height: 20px;
+  }
+  &-md {
+    height: 32px;
+  }
+  &-lg {
+    height: 48px;
+  }
+  &-xl {
+    height: 56px;
+  }
+
+  @include mq('sm') {
+    &-xs {
+      height: 16px;
+    }
+    &-sm {
+      height: 32px;
+    }
+    &-md {
+      height: 40px;
+    }
+    &-lg {
+      height: 56px;
+    }
+    &-xl {
+      height: 64px;
+    }
+  }
+
+  @include mq('lg') {
+    &-md {
+      height: 48px;
+    }
+    &-lg {
+      height: 64px;
+    }
+    &-xl {
+      height: 80px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.width_spacer {
+  &-xs {
+    height: auto;
+    width: 4px;
+  }
+  &-sm {
+    height: auto;
+    width: 8px;
+  }
+  &-md {
+    height: auto;
+    width: 16px;
+  }
+  &-lg {
+    height: auto;
+    width: 32px;
+  }
+  &-xl {
+    height: auto;
+    width: 64px;
+  }
+}
