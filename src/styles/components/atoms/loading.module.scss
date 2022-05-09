@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  margin: 10px auto;
+  border: 4px #ddd solid;
+  border-top: 4px $secondary solid;
+  border-radius: 50%;
+  animation: spin-anime 1.0s infinite linear;
+}
+
+@keyframes spin-anime {
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
