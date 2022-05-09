@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.checkbox {
+  input {
+    display: none;
+  }
+  input[type='checkbox']:checked + label {
+    background: $main;
+    color: $white;
+  }
+  label {
+    display: block;
+    font-size: 12px;
+    width: 50px; 
+    height: 30px; /* ラベルの高さを指定する */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 30px; /* 行の高さを指定する */
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+    color: $light-blue; /* フォントの色を指定 */
+  }
+  label:hover {
+    background: $light-purple;
+    color: $white;
+  }
+  @include mq ('md') {
+    label {
+      font-size: 16px;
+      width: 100px; 
+      height: 45px;
+      line-height: 45px; 
+    }
+  }
+}
