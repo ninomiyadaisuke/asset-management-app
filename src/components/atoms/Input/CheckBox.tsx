@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, ChangeEvent } from 'react';
 
 import styles from '../../../styles/components/atoms/checkbox.module.scss';
 
 type Props = {
-  text: '業種別' | '銘柄別';
-  onChange: () => void;
+  text: '銘柄別' | '業種別';
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   checked: boolean;
 };
 
@@ -12,7 +12,7 @@ const CheckBox: FC<Props> = (props) => {
   const { text = '', checked = false, onChange } = props;
   return (
     <div className={styles.checkbox}>
-      <input type="checkbox" id={text} checked={checked} onChange={onChange} />
+      <input type="checkbox" id={text} value={text} checked={checked} onChange={(e) => onChange(e)} />
       <label htmlFor={text}>{text}</label>
     </div>
   );
