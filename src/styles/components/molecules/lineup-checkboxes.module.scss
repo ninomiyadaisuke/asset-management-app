@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.checkboxes {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+  @include mq('md') {
+    width: 300px;
+  }
+}
