@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+
+.pie_chart {
+  height: 300px;
+  @include mq('md') {
+    height: 500px;
+  }
+}
