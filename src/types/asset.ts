@@ -1,10 +1,9 @@
 export type Asset = {
-  code: string;
+  code: number;
   name: string;
   industry: string;
-  pumberOfPossessions: number;
+  numberOfPossessions: number;
   purchasePrice: number;
   marketPrice: number;
   dividend: number;
-  yield: number;
 };
