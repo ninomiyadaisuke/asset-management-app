@@ -5,6 +5,8 @@ import 'chartjs-plugin-doughnutlabel';
 
 import { Loading } from '../components/atoms/Utilities';
 
+import '../styles/base.scss';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

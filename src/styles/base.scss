@@ -166,16 +166,16 @@ p {
   line-height: 1.7;
 }
 
-a {
-  color: $main;
-  transition: color 0.35s ease;
-  &:hover {
-    color: $link-dark;
-  }
-  &:visited {
-    color: $link-main;
-  }
-}
+// a {
+//   color: $main;
+//   transition: color 0.35s ease;
+//   &:hover {
+//     color: $link-dark;
+//   }
+//   &:visited {
+//     color: $link-main;
+//   }
+// }
 
 main {
   background-color: #fafafa;
