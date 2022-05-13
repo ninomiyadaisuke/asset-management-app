@@ -33,3 +33,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+asset-management-with-nextjs-21895efb033a.json
