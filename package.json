@@ -20,6 +20,7 @@
     "chart.js": "2.9.1",
     "chartjs-plugin-doughnutlabel": "2.0.3",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "googleapis": "^100.0.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-chartjs-2": "2.8.0",
