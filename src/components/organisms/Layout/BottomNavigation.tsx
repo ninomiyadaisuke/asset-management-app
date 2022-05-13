@@ -14,7 +14,7 @@ const BottomNavigation: FC = () => {
           <AiOutlineHome size={'20px'} color={'#616161'} />
         </a>
       </Link>
-      <Link href={'/'}>
+      <Link href={'/sample'}>
         <a>
           <GoGraph size={'20px'} color={'#616161'} />
         </a>

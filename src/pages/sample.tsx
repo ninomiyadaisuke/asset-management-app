@@ -1,10 +1,13 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { fetchAsset } from '../lib/asset';
+import { Layout } from '../components/Layout';
 
 const Sample: NextPage = () => {
-  fetchAsset();
-  return <div></div>;
+  return (
+    <Layout title="sample" description="sample">
+      sample
+    </Layout>
+  );
 };
 
 export default Sample;
