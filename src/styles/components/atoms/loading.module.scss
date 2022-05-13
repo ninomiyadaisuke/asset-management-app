@@ -1,9 +1,11 @@
 @import '../../variables.scss';
 
 .spinner {
+  position: absolute;
+  top: 45%;
+  left: 50%;
   width: 32px;
   height: 32px;
-  margin: 10px auto;
   border: 4px #ddd solid;
   border-top: 4px $secondary solid;
   border-radius: 50%;
