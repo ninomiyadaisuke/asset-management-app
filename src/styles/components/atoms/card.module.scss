@@ -1,0 +1,74 @@
+@import '../../variables.scss';
+
+.card {
+  padding: 10px;
+  border-bottom: 1px solid lighten($light-gray, 30%);
+  width: 100%;
+  height: auto;
+  p {
+    font-size: 10px;
+  }
+  &__profit,&__loss {
+    font-size: 8px;
+  }
+  &__profit {
+    color: $main;
+  }
+  &__loss {
+    color: $secondary;
+  }
+
+  h3,
+  h4 {
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    h3 {
+      font-size: 14px;
+    }
+    &_right {
+      display: flex;
+      p {
+        margin-right: 5px;
+      }
+    }
+    display: flex;
+    justify-content: space-between;
+  }
+  &__body {
+    h4 {
+      font-size: 12px;
+    }
+
+    display: grid;
+    background-color: $card-body;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__grid {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+  }
+  @include mq('md') {
+    &__profit,&__loss {
+      font-size: 12px;
+    }
+    p {
+      font-size: 14px;
+    }
+    &__title {
+      h3 {
+        font-size: 20px;
+      }
+    }
+    &__body {
+      h4 {
+        font-size: 16px;
+      }
+      display: grid;
+      background-color: $card-body;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
