@@ -8,7 +8,7 @@
   width: 100%;
   height: 40px;
   background: $background;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   @include mq('md') {
     display: none;
