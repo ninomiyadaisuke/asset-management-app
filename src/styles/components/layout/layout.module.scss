@@ -3,4 +3,12 @@
 .layout {
   height: 100vh;
   background: $background;
+  main {
+    margin: 0 10px;
+  }
+  @include mq('md') {
+    main {
+      margin: 0, 20px;
+    }
+  }
 }
