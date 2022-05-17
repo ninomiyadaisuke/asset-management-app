@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.total {
+  @include mq('md') {
+    display: flex;
+    justify-content: space-between;
+    &__chart {
+      width: 50%;
+    }
+    &__list {
+      width: 50%;
+    }
+  }
+}
