@@ -1,14 +1,9 @@
 import { FC } from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import { Asset } from 'types/asset';
 
 import styles from '../../../styles/components/atoms/pie_chart.module.scss';
 
-type Props = {
-  data: Asset[];
-};
-
-const PieChart: FC<Props> = () => {
+const PieChart: FC = () => {
   const chartData = {
     datasets: [
       {

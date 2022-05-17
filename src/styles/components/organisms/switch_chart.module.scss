@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.switch {
+  @include mq('md') {
+    &__check {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
