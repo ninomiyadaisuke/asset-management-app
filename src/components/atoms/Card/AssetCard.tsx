@@ -1,18 +1,25 @@
 import { FC } from 'react';
+import { useYieldCalcultation } from '../../../hooks/useYieldCalculation';
+import { usePercentageCalcultation } from '../../../hooks/usePercentageCalculation';
 
 import styles from '../../../styles/components/atoms/card.module.scss';
 
-const AssetCard: FC = () => {
-  const name = '大和ハウス';
-  const numberOfPossessions = 79;
-  const marketPrice = 3123;
-  const purchasePrice = 3205;
-  const dividend = 126;
-  const dividendYield = ((126 / 3123) * 100).toFixed(2);
-  const bookValueYield = ((126 / 3205) * 100).toFixed(2);
+type Props = {
+  name: string;
+  numberOfPossessions: number;
+  marketPrice: number;
+  purchasePrice: number;
+  dividend: number;
+};
+
+const AssetCard: FC<Props> = (props) => {
+  const { name, numberOfPossessions, marketPrice, purchasePrice, dividend } = props;
   const profitAndLoss = marketPrice - purchasePrice;
-  const percent = ((profitAndLoss / marketPrice) * 100).toFixed(2);
-  const CheckedPositiveAndNegative = Math.sign(profitAndLoss);
+  const dividendYield = useYieldCalcultation(dividend, marketPrice);
+  const bookValueYield = useYieldCalcultation(dividend, purchasePrice);
+  const percent = usePercentageCalcultation(marketPrice, profitAndLoss);
+
+  const CheckedPositiveAndNegative = Math.sign(percent);
 
   return (
     <div className={styles.card}>

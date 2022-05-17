@@ -1,1 +1,1 @@
-export { default as TotalAssets } from './TotalAssetsTemplate';
+export { default as TotalAssetsTemplate } from './TotalAssetsTemplate';
