@@ -5,20 +5,18 @@ import { chartColor } from '../../../lib/data';
 import { useAssetClient } from '../../../hooks/useAssetClient';
 import { useTotalByIndustry } from '../../../hooks/useTotalByIndustry';
 import { useTotalByBrand } from '../../../hooks/useTotalByBrand';
+import { useAppSelector } from '../../../hooks/useRedux';
+import { invert } from '../../../slice/toggleSlice';
 
 import styles from '../../../styles/components/atoms/pie_chart.module.scss';
 
-type Props = {
-  toggle: boolean;
-};
-
-const PieChart: FC<Props> = (props) => {
-  const { toggle } = props;
+const PieChart: FC = () => {
+  const toggle = useAppSelector(invert);
   const { data, totalPrice } = useAssetClient();
   const { industryName, totalResult } = useTotalByIndustry(data);
   const { name, result } = useTotalByBrand(data);
-  const selectLabel = toggle ? name : industryName;
-  const selectData = toggle ? result : totalResult;
+  const selectLabel = toggle.toggle ? name : industryName;
+  const selectData = toggle.toggle ? result : totalResult;
   //銘柄別
   const chartData = {
     labels: selectLabel,
@@ -45,22 +43,22 @@ const PieChart: FC<Props> = (props) => {
           fontColor: '#fff',
         },
       ],
-      doughnutlabel: {
-        labels: [
-          {
-            text: '資産評価額',
-            font: {
-              size: 20,
-            },
-          },
-          {
-            text: `${Number(totalPrice).toLocaleString()}円`,
-            font: {
-              size: 18,
-            },
-          },
-        ],
-      },
+      // doughnutlabel: {
+      //   labels: [
+      //     {
+      //       text: '資産評価額',
+      //       font: {
+      //         size: 20,
+      //       },
+      //     },
+      //     {
+      //       text: `${Number(totalPrice).toLocaleString()}円`,
+      //       font: {
+      //         size: 18,
+      //       },
+      //     },
+      //   ],
+      // },
     },
     legend: {
       display: false,
