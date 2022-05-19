@@ -1,5 +1,7 @@
-import { FC, ChangeEvent, useState, Dispatch, SetStateAction } from 'react';
+import { FC, ChangeEvent, useState } from 'react';
 import { CheckBox } from '../../atoms/Input';
+import { useAppSelector, useAppDispatch } from '../../../hooks/useRedux';
+import { setToggle, invert } from '../../../slice/toggleSlice';
 
 import styles from '../../../styles/components/molecules/lineup-checkboxes.module.scss';
 
@@ -7,19 +9,15 @@ const initialData = {
   value: '銘柄別',
 };
 
-type Props = {
-  setToggle: Dispatch<SetStateAction<boolean>>;
-  toggle: boolean;
-};
-
-const LineUpCheckBoxes: FC<Props> = (props) => {
-  const { setToggle, toggle } = props;
+const LineUpCheckBoxes: FC = () => {
+  const toggle = useAppSelector(invert);
+  const dispatch = useAppDispatch();
   const [data, setData] = useState(initialData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newData = { ...data, value: e.target.value };
     setData(newData);
-    setToggle(!toggle);
+    dispatch(setToggle(!toggle.toggle));
   };
   return (
     <div className={styles.checkboxes}>

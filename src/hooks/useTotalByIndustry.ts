@@ -1,11 +1,13 @@
 import { Asset } from '../types/asset';
 
 export const useTotalByIndustry = (data: Asset[]) => {
-  const choise = data.map((asset) => {
-    const industry = asset.industry;
-    const result = asset.marketPrice * asset.numberOfPossessions;
-    return { industry, result };
-  });
+  const choise =
+    data &&
+    data.map((asset) => {
+      const industry = asset.industry;
+      const result = asset.marketPrice * asset.numberOfPossessions;
+      return { industry, result };
+    });
   const extractIndustry = choise.map((asset) => asset.industry);
   const removeDuplicateIndustries = Array.from(new Set(extractIndustry));
   const industryAndTotal = removeDuplicateIndustries.map((industry) => {
