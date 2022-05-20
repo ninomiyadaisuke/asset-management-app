@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { toggleSlice } from '../slice/toggleSlice';
+import { changePageSlice } from '../slice/changePageSlice';
 
 export const store = configureStore({
   reducer: {
+    change: changePageSlice.reducer,
     toggle: toggleSlice.reducer,
   },
 });

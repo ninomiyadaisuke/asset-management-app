@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '../../../hooks/useRedux';
 import { setToggle, invert } from '../../../slice/toggleSlice';
 
 import styles from '../../../styles/components/molecules/lineup-checkboxes.module.scss';
+import { page, changePage } from 'slice/changePageSlice';
 
 const initialData = {
   value: '銘柄別',
@@ -11,6 +12,7 @@ const initialData = {
 
 const LineUpCheckBoxes: FC = () => {
   const toggle = useAppSelector(invert);
+  const change = useAppSelector(page);
   const dispatch = useAppDispatch();
   const [data, setData] = useState(initialData);
 

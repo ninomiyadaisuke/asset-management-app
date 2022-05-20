@@ -7,6 +7,7 @@ import { useTotalByIndustry } from '../../../hooks/useTotalByIndustry';
 import { useTotalByBrand } from '../../../hooks/useTotalByBrand';
 import { useAppSelector } from '../../../hooks/useRedux';
 import { invert } from '../../../slice/toggleSlice';
+import { page } from '../../../slice/changePageSlice';
 
 import styles from '../../../styles/components/atoms/pie_chart.module.scss';
 
@@ -43,22 +44,22 @@ const PieChart: FC = () => {
           fontColor: '#fff',
         },
       ],
-      // doughnutlabel: {
-      //   labels: [
-      //     {
-      //       text: '資産評価額',
-      //       font: {
-      //         size: 20,
-      //       },
-      //     },
-      //     {
-      //       text: `${Number(totalPrice).toLocaleString()}円`,
-      //       font: {
-      //         size: 18,
-      //       },
-      //     },
-      //   ],
-      // },
+      doughnutlabel: {
+        labels: [
+          {
+            text: '資産評価額',
+            font: {
+              size: 20,
+            },
+          },
+          {
+            text: `${Number(totalPrice).toLocaleString()}円`,
+            font: {
+              size: 18,
+            },
+          },
+        ],
+      },
     },
     legend: {
       display: false,
