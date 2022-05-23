@@ -24,7 +24,9 @@ const Header: FC = () => {
             </Link>
           </li>
           <li>
-            <a>Logout</a>
+            <Link href={'/login'}>
+              <a>Logout</a>
+            </Link>
           </li>
         </ul>
       </nav>
