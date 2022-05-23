@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import { AiOutlineHome } from 'react-icons/ai';
 import { GoGraph } from 'react-icons/go';
 import { IoIosLogOut } from 'react-icons/io';
@@ -20,11 +19,7 @@ const BottomNavigation: FC = () => {
     <div className={styles.navgation}>
       <AiOutlineHome size={'20px'} color={'#616161'} onClick={() => handleClick('total')} />
       <GoGraph size={'20px'} color={'#616161'} onClick={() => handleClick('dividend')} />
-      <Link href={'/'}>
-        <a>
-          <IoIosLogOut size={'20px'} color={'#616161'} />
-        </a>
-      </Link>
+      <IoIosLogOut size={'20px'} color={'#616161'} />
     </div>
   );
 };

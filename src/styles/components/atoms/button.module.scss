@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.button {
+  font-family: sans-serif;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: $main;
+  color: $white;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 36px;
+  width: 100px;
+  padding: 0 16px;
+  margin: 4px;
+  border-radius: 4px;
+  @include mq('md') {
+    width: 150px;
+    height: 60px;
+    font-size: 24px;
+  }
+}
