@@ -48,22 +48,22 @@ const PieChart: FC = () => {
           fontColor: '#fff',
         },
       ],
-      doughnutlabel: {
-        labels: [
-          {
-            text: assetsText,
-            font: {
-              size: 20,
-            },
-          },
-          {
-            text: `${Number(price).toLocaleString()}円`,
-            font: {
-              size: 18,
-            },
-          },
-        ],
-      },
+      // doughnutlabel: {
+      //   labels: [
+      //     {
+      //       text: assetsText,
+      //       font: {
+      //         size: 20,
+      //       },
+      //     },
+      //     {
+      //       text: `${Number(price).toLocaleString()}円`,
+      //       font: {
+      //         size: 18,
+      //       },
+      //     },
+      //   ],
+      // },
     },
     legend: {
       display: false,

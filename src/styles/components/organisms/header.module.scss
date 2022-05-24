@@ -6,8 +6,6 @@
     width: 100%;
     padding: 30px 4% 30px;
     background-color: $main;
-    // position: fixed;
-    // top: 0;
     display: flex;
     align-items: center;
     h1 {
@@ -17,6 +15,7 @@
     }
     a {
       text-decoration: none;
+      cursor: pointer;
       color: $white;
     }
     ul {
