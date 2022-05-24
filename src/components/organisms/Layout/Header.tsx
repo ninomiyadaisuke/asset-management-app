@@ -1,9 +1,12 @@
 import { FC } from 'react';
 import Link from 'next/link';
+import { useAuth } from '../../../hooks/useAuth';
 
 import styles from '../../../styles/components/organisms/header.module.scss';
 
 const Header: FC = () => {
+  const { logoutMutation } = useAuth();
+
   return (
     <header className={styles.header}>
       <h1>
@@ -24,9 +27,7 @@ const Header: FC = () => {
             </Link>
           </li>
           <li>
-            <Link href={'/login'}>
-              <a>Logout</a>
-            </Link>
+            <a onClick={() => logoutMutation.mutate()}>Logout</a>
           </li>
         </ul>
       </nav>
