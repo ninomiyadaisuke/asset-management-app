@@ -9,7 +9,9 @@ export const useAssetClient = (state: string) => {
       data && data.reduce((sum, element) => sum + element.marketPrice * element.numberOfPossessions, 0).toFixed(0);
     return { data, totalPrice };
   }
+  const totalAcquisitionPrice =
+    data && data.reduce((sum, element) => sum + element.numberOfPossessions * element.purchasePrice, 0);
   const dividendPrice =
     data && data.reduce((sum, element) => sum + element.dividend * element.numberOfPossessions, 0).toFixed(0);
-  return { data, dividendPrice };
+  return { data, dividendPrice, totalAcquisitionPrice };
 };
