@@ -6,6 +6,7 @@ export const useAuth = () => {
   const logoutMutation = useMutation(() => logout(), {
     onSuccess: () => {
       queryClient.removeQueries('auth');
+      queryClient.removeQueries('asset');
     },
   });
   return { logoutMutation };
