@@ -6,6 +6,9 @@ const email = process.env.GOOGLE_CLIENT_EMAIL;
 const key = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Asset[] | undefined>) {
+  const uid = req.body;
+
+  const readSheets = uid === 'dfxxhV7tE9aHVkTSYtQG0iqdAEO2' ? 'Demoポートフォリオ' : '②ポートフォリオ';
   const auth = new google.auth.GoogleAuth({
     credentials: {
       client_email: email,
@@ -24,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const getRows = await sheets.spreadsheets.values.get({
     auth,
     spreadsheetId,
-    range: '②ポートフォリオ',
+    range: readSheets,
   });
 
   const rows = getRows.data.values;

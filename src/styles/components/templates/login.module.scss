@@ -3,6 +3,7 @@
 .login {
   background-color: $background;
   &__position {
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
