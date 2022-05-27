@@ -1,11 +1,20 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../../../hooks/useAuth';
+import { useAppDispatch } from '../../../hooks/useRedux';
+import { changePage } from '../../../slice/changePageSlice';
+import { setToggle } from '../../../slice/toggleSlice';
 
 import styles from '../../../styles/components/organisms/header.module.scss';
 
 const Header: FC = () => {
+  const dispatch = useAppDispatch();
   const { logoutMutation } = useAuth();
+
+  const handleClick = (state: 'total' | 'dividend') => {
+    dispatch(setToggle(true));
+    dispatch(changePage(state));
+  };
 
   return (
     <header className={styles.header}>
@@ -17,14 +26,10 @@ const Header: FC = () => {
       <nav>
         <ul>
           <li>
-            <Link href={'/'}>
-              <a>ポートフォリオ</a>
-            </Link>
+            <a onClick={() => handleClick('total')}>ポートフォリオ</a>
           </li>
           <li>
-            <Link href={'/'}>
-              <a>配当グラフ</a>
-            </Link>
+            <a onClick={() => handleClick('dividend')}>配当グラフ</a>
           </li>
           <li>
             <a onClick={() => logoutMutation.mutate()}>Logout</a>

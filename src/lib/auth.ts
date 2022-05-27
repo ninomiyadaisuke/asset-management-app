@@ -1,7 +1,11 @@
 import Router from 'next/router';
-import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../firebase/index';
 import { User } from '../types/user';
+
+export const testLogin = async () => {
+  signInWithEmailAndPassword(auth, 'test@test.com', 'test1234');
+};
 
 export const login = async () => {
   const provider = new GoogleAuthProvider();
@@ -24,27 +28,33 @@ export const listenAuthState = (): Promise<User | undefined> => {
         reject(undefined);
       } else {
         const { email } = user;
-        const res = await fetch('/api/auth', {
-          method: 'POST',
-          body: email,
-        });
-        await res
-          .json()
-          .then((data) => {
-            if (data) {
-              resolve({
-                uid: user.uid,
-              });
-              Router.push('/');
-            } else {
-              logout();
-              Router.push('/login');
-              reject(undefined);
-            }
-          })
-          .catch((e) => {
-            alert(e.message);
+        const uid = user.uid;
+        if (email === 'test@test.com') {
+          resolve({ uid: uid });
+          Router.push('/');
+        } else {
+          const res = await fetch('/api/auth', {
+            method: 'POST',
+            body: email,
           });
+          await res
+            .json()
+            .then((data) => {
+              if (data) {
+                resolve({
+                  uid: uid,
+                });
+                Router.push('/');
+              } else {
+                logout();
+                Router.push('/login');
+                reject(undefined);
+              }
+            })
+            .catch((e) => {
+              alert(e.message);
+            });
+        }
       }
     });
   });

@@ -9,7 +9,6 @@ const DividendManagementTemplate: FC = () => {
     <div>
       <SwitchChart />
       <p>{`${result.toFixed(2)}%`}</p>
-      <p>test</p>
     </div>
   );
 };
