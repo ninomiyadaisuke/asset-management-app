@@ -4,7 +4,9 @@ import { auth } from '../firebase/index';
 import { User } from '../types/user';
 
 export const testLogin = async () => {
-  signInWithEmailAndPassword(auth, 'test@test.com', 'test1234');
+  signInWithEmailAndPassword(auth, 'test@test.com', 'test1234').then(() => {
+    Router.push('/');
+  });
 };
 
 export const login = async () => {
@@ -31,7 +33,6 @@ export const listenAuthState = (): Promise<User | undefined> => {
         const uid = user.uid;
         if (email === 'test@test.com') {
           resolve({ uid: uid });
-          Router.push('/');
         } else {
           const res = await fetch('/api/auth', {
             method: 'POST',
