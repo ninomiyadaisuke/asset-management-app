@@ -1,18 +1,29 @@
 import Router from 'next/router';
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  signOut,
+  browserSessionPersistence,
+  setPersistence,
+} from 'firebase/auth';
 import { auth } from '../firebase/index';
 import { User } from '../types/user';
 
 export const testLogin = async () => {
-  signInWithEmailAndPassword(auth, 'test@test.com', 'test1234').then(() => {
-    Router.push('/');
+  await setPersistence(auth, browserSessionPersistence).then(async () => {
+    await signInWithEmailAndPassword(auth, 'test@test.com', 'test1234').then(async () => {
+      Router.push('/');
+    });
   });
 };
 
 export const login = async () => {
   const provider = new GoogleAuthProvider();
-  await signInWithPopup(auth, provider).catch((e) => {
-    alert(e.message);
+  await setPersistence(auth, browserSessionPersistence).then(async () => {
+    await signInWithPopup(auth, provider).catch((e) => {
+      alert(e.message);
+    });
   });
 };
 
