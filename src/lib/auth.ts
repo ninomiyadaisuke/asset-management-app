@@ -21,9 +21,13 @@ export const testLogin = async () => {
 export const login = async () => {
   const provider = new GoogleAuthProvider();
   await setPersistence(auth, browserSessionPersistence).then(async () => {
-    await signInWithPopup(auth, provider).catch((e) => {
-      alert(e.message);
-    });
+    await signInWithPopup(auth, provider)
+      .then(() => {
+        Router.push('/');
+      })
+      .catch((e) => {
+        alert(e.message);
+      });
   });
 };
 
